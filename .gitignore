@@ -1,3 +1,6 @@
 *.o
 *.a
 main
+
+Project_LinkStaticLib/include
+Project_LinkStaticLib/lib
