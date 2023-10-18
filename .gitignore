@@ -1,6 +1,9 @@
+.vscode*
 *.o
 *.a
+*.so*
 main
 
 Project_LinkStaticLib/include
 Project_LinkStaticLib/lib
+

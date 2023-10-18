@@ -12,7 +12,7 @@ clean:
 	rm -rf main
 
 run:
-	./main
+	@./main
 
 importLib:
 	cp -r ../Project_StaticLib/include .
