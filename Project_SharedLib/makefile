@@ -11,7 +11,7 @@ all: clean $(objects)
 %.o: %.c
 	$(CC) $^ $(CFLAG) -o src/$@
 
-.PHONY: clean pack
+.PHONY: clean pack deploy
 
 clean:
 	rm -rf src/*.o
