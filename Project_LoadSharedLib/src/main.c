@@ -11,30 +11,30 @@ int main(void){
     char *error;
 
     /* open the needed object */
-    handle = dlopen("../SharedLib/libdynamicload.so", RTLD_LAZY);
+    handle = dlopen("libdynamicload.so.1", RTLD_LAZY);
     if(!handle){
-        fputs(dlerror(), stderr);
-        exit(1);
+        fprintf(stderr, "%s\n", dlerror());
+        exit(EXIT_FAILURE);
     }
     /* execute programs */
     f = dlsym(handle, "sharedLibForDynamicLoadProg1");
     if((error = dlerror()) != NULL){
         fprintf(stderr, "%s\n", error);
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     f();
     
     f = dlsym(handle, "sharedLibForDynamicLoadProg2");
     if((error = dlerror()) != NULL){
         fprintf(stderr, "%s\n", error);
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     f();
 
     f = dlsym(handle, "sharedLibForDynamicLoadProg3");
     if((error = dlerror()) != NULL){
         fprintf(stderr, "%s\n", error);
-        exit(1);
+        exit(EXIT_FAILURE);
     }
     f();
 

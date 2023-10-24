@@ -1,7 +1,7 @@
 vpath %.c src
 
 CC = gcc
-CFLAG = -I include -L lib -l staticlink.1.0.0
+CFLAG = -static -I include -L lib -l staticlink
 
 main: main.c
 	$(CC) $^ $(CFLAG) -o $@
@@ -16,5 +16,5 @@ run:
 
 importLib:
 	cp -r ../Project_StaticLib/include .
-	cp ../Project_StaticLib/libstaticlink.1.0.0.a lib
+	cp ../Project_StaticLib/libstaticlink.a lib
 	

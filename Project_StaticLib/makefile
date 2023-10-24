@@ -17,5 +17,5 @@ clean:
 	rm -rf src/*.o
 
 pack:
-	@rm -rf libstaticlink.1.0.0.a
-	ar rs libstaticlink.1.0.0.a $(foreach wrd, $(objects), src/$(wrd))
+	@rm -rf libstaticlink.a
+	ar rcs libstaticlink.a $(foreach wrd, $(objects),src/$(wrd))

@@ -17,10 +17,4 @@ clean:
 	rm -rf src/*.o
 
 pack:
-	$(CC) $(foreach wrd, $(objects), src/$(wrd)) -shared -Wl,-soname,libdynamiclink.so.1 -o libdynamiclink.so.1.0.0
-
-deploy:
-	mkdir -p ../SharedLib
-	cp libdynamiclink.so.1.0.0 ../SharedLib
-	ln -fs ../SharedLib/libdynamiclink.so.1.0.0 ../SharedLib/libdynamiclink.so.1
-	ln -fs ../SharedLib/libdynamiclink.so.1.0.0 ../SharedLib/libdynamiclink.so
+	$(CC) $(foreach wrd, $(objects),src/$(wrd)) -shared -Wl,-soname,libdynamiclink.so.1 -o libdynamiclink.so.1.0.0

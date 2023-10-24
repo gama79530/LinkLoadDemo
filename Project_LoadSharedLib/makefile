@@ -1,7 +1,7 @@
 vpath %.c src
 
 CC = gcc
-CFLAG = -I include -l dl
+CFLAG = -l dl
 
 main: main.c
 	$(CC) $^ $(CFLAG) -o $@
@@ -12,8 +12,13 @@ clean:
 	rm -rf main
 
 importLib:
-	cp -r ../Project_SharedLibForDynamicLoad/include .
+	mkdir -p ../SharedLib
+	cp ../Project_SharedLibForDynamicLoad/libdynamicload.so.1.0.0 ../SharedLib
+	ln -fs ../SharedLib/libdynamicload.so.1.0.0 ../SharedLib/libdynamicload.so
+	ln -fs ../SharedLib/libdynamicload.so.1.0.0 ../SharedLib/libdynamicload.so.1
 
+LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:../SharedLib
+export LD_LIBRARY_PATH
 run:
 	@./main
 	

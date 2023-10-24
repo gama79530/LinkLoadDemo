@@ -2,7 +2,7 @@ vpath %.c src
 vpath %.o src
 
 CC = gcc
-CFLAG = -c
+CFLAG = -c -fPIC
 
 objects = prog1.o prog2.o prog3.o
 
@@ -18,8 +18,3 @@ clean:
 
 pack:
 	$(CC) $(foreach wrd, $(objects), src/$(wrd)) -shared -Wl,-soname,libdynamicload.so.1 -o libdynamicload.so.1.0.0
-
-deploy:
-	mkdir -p ../SharedLib
-	cp libdynamicload.so.1.0.0 ../SharedLib
-	ln -fs ../SharedLib/libdynamicload.so.1.0.0 ../SharedLib/libdynamicload.so
